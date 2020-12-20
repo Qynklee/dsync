@@ -177,7 +177,8 @@ def is_ida_version(requested):
     if not count:
         return False
 
-    for i in xrange(count):
+    #edit this for your python version
+    for i in range(count):
         if int(kv[i]) < int(rv[i]):
             return False
     return True
@@ -192,7 +193,7 @@ class Dsync(ida_idaapi.plugin_t):
     hxehook = None
 
     def init(self):
-        required_ver = "7.2"
+        required_ver = "7.5" #Edit this line for your version
         if not is_ida_version(required_ver) or not init_hexrays_plugin():
             msg ("[!] '%s' is inactive (IDA v%s and decompiler required).\n" % (Dsync.wanted_name, required_ver))
             return PLUGIN_SKIP
